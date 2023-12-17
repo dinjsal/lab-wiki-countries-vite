@@ -68,7 +68,7 @@ function CountryDetailsPage({countryList}) {
                 {foundCountry.borders.map((border) => {
                   return (
                     <div key={border._id}> 
-                      {border.borders}
+                      {border.borders != [] ? 'with border/s' : 'without'}
                     </div>
                   )
                 })}
