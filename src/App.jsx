@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path='/' element={ <HomePage countryList={countryList} setCountryList={setCountryList}/>}/>
+        <Route path='/' element={ <HomePage countryList={countryList}/>}/>
         {/* :alpha3Code should also appear in const {alpha3Code} = useParams() */}
         <Route path='/countries/:alpha3Code' element={ <CountryDetailsPage countryList={countryList} />}/>
         <Route path='*' element={ <ErrorPage />}/>

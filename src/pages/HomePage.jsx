@@ -26,7 +26,8 @@ function HomePage({countryList}) {
                     <img 
                     src={`https://flagpedia.net/data/flags/icon/72x54/${oneCountry.alpha2Code.toLowerCase()}.png`} 
                     alt={oneCountry.name.common} 
-                    style={{height: "50px"}}
+                    style={{height: "50px"}} 
+                    className="flag"
                 />
                     </Link>
                 <p>{oneCountry.name.common}</p>

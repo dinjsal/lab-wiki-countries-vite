@@ -21,11 +21,15 @@
   margin: 0 auto;
 }
 
+.country-card:hover {
+  background-color: rgba(169, 169, 169, 0.3);
+}
+
 .home-button:hover {
   transform: scale(1.2);
 }
 
-img:hover {
+.flag:hover {
   transform: scale(1.1);
 }
 
@@ -33,7 +37,7 @@ hr {
   width: 70%;
 }
 
-table th {
+table th, td {
   text-align: center; 
 }
 

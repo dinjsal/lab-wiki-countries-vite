@@ -40,18 +40,14 @@ function CountryDetailsPage({countryList}) {
     <div>
         <br />
         <h1>Country Details</h1>
-        {/* {!img ? (
-          <img src={loadingGif} alt="home-gif" className="loading" />
-        ) : (
-          <img 
-          src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`} 
-           alt={foundCountry.name.common} 
-           style={{height: "50px", marginTop: "30px", marginBottom: "30px"}}
-         />
-        )} */}
-        <br />
        {foundCountry && (
         <>
+        <img 
+          src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`} 
+          alt={foundCountry.name.common} 
+          style={{height: "50px", marginTop: "30px", marginBottom: "30px"}} 
+          className="flag"
+        />
         <h4>{foundCountry.name.common.toUpperCase()}</h4>
         <br />
         <br />
@@ -69,14 +65,21 @@ function CountryDetailsPage({countryList}) {
               <th scope="row">Borders</th>
               <td>
                 <Link>
-                {foundCountry.borders}
+                {foundCountry.borders.map((border) => {
+                  return (
+                    <div key={border._id}> 
+                      {border.borders}
+                    </div>
+                  )
+                })}
+                {/* {foundCountry.borders != [] ? {} : foundCountry.borders} */}
                   {/* {foundCountry.borders.map((border) => {
                     console.log(border)
                     return (
                       <div key={border._id}> 
                         <ul>
                           <li>
-                            {border.borders}
+                            {border.borders == [] ? "none" : border.alpha3Code }
                           </li>
                         </ul>
                       </div>
