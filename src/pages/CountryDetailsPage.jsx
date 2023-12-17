@@ -6,17 +6,6 @@ import axios from 'axios'
 
 function CountryDetailsPage({countryList}) {
   
-  const loadingGif = 'https://gifdb.com/images/high/buffering-animated-text-icon-loading-u1h739who8u5mtw3.gif'
-
-  const homeButton = 'http://www.newdesignfile.com/postpic/2015/11/house-icon-home-button_14081.png'
-    
-    if (!countryList) {
-        return <img 
-        src={loadingGif} 
-        alt="home-gif" 
-        style={{height: "15%"}} />
-    }
-  
   const [foundCountry, setFoundCountry] = useState(null);
   const { alpha3Code } = useParams();
   console.log('alpha3Code', alpha3Code);
@@ -36,11 +25,22 @@ function CountryDetailsPage({countryList}) {
     }
   }, [alpha3Code])
 
+  const loadingGif = 'https://gifdb.com/images/high/buffering-animated-text-icon-loading-u1h739who8u5mtw3.gif'
+
+  const homeButton = 'http://www.newdesignfile.com/postpic/2015/11/house-icon-home-button_14081.png'
+    
+    if (!foundCountry) {
+        return <img 
+        src={loadingGif} 
+        alt="home-gif" 
+        style={{height: "15%"}} />
+    }
+  
   return (
     <div>
         <br />
         <h1>Country Details</h1>
-       {foundCountry && (
+        {foundCountry && (
         <>
         <img 
           src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`} 
