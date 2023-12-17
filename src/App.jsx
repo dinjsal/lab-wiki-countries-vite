@@ -11,21 +11,27 @@ function App() {
   const [countryList, setCountryList] = useState("");
 
   useEffect(() => {
-    const fetchData = async () => {
-      const {data} = await axios.get(
-        'https://ih-countries-api.herokuapp.com/countries'
-      );
-      setCountryList(data)
-      console.log(data)
+    try {
+      const fetchData = async () => {
+        const {data} = await axios.get(
+          'https://ih-countries-api.herokuapp.com/countries'
+        );
+        setCountryList(data)
+        console.log(data)
+      }
+      fetchData();
+    } catch (err) {
+      console.log('Error:', err )
     }
-    fetchData();
   }, [])
+
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path='/' element={ <HomePage countryList={countryList} setCountryList={setCountryList}/>}/>
-        <Route path='/countries/:countryId' element={ <CountryDetailsPage />}/>
+        {/* :alpha3Code should also appear in const {alpha3Code} = useParams() */}
+        <Route path='/countries/:alpha3Code' element={ <CountryDetailsPage countryList={countryList} />}/>
         <Route path='*' element={ <ErrorPage />}/>
       </Routes>
     </div>

@@ -20,3 +20,20 @@
   padding: 20px 10px 10px;
   margin: 0 auto;
 }
+
+.home-button:hover {
+  transform: scale(1.2);
+}
+
+hr {
+  width: 70%;
+}
+
+table th {
+  text-align: center; 
+}
+
+.table {
+  margin: auto;
+  width: 80% !important; 
+}
