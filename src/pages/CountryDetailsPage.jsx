@@ -11,7 +11,10 @@ function CountryDetailsPage({countryList}) {
   const homeButton = 'http://www.newdesignfile.com/postpic/2015/11/house-icon-home-button_14081.png'
     
     if (!countryList) {
-        return <img src={loadingGif} alt="home-gif" className="loading" />
+        return <img 
+        src={loadingGif} 
+        alt="home-gif" 
+        style={{height: "15%"}} />
     }
   
   const [foundCountry, setFoundCountry] = useState(null);
@@ -37,14 +40,14 @@ function CountryDetailsPage({countryList}) {
     <div>
         <br />
         <h1>Country Details</h1>
-        {/* {img ? (
+        {/* {!img ? (
+          <img src={loadingGif} alt="home-gif" className="loading" />
+        ) : (
           <img 
           src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`} 
            alt={foundCountry.name.common} 
            style={{height: "50px", marginTop: "30px", marginBottom: "30px"}}
          />
-        ) : (
-           <img src={loadingGif} alt="home-gif" className="loading" />
         )} */}
         <br />
        {foundCountry && (
@@ -64,11 +67,23 @@ function CountryDetailsPage({countryList}) {
             </tr>
             <tr>
               <th scope="row">Borders</th>
-              <td>{foundCountry.borders == [] ? "none" : (
-                      <Link to={`/countries/:${foundCountry.alpha3Code}`}>
-                      {foundCountry.borders}
-                      </Link>
-                      )} </td>
+              <td>
+                <Link>
+                {foundCountry.borders}
+                  {/* {foundCountry.borders.map((border) => {
+                    console.log(border)
+                    return (
+                      <div key={border._id}> 
+                        <ul>
+                          <li>
+                            {border.borders}
+                          </li>
+                        </ul>
+                      </div>
+                    )
+                  })} */}
+              </Link>
+              </td>
             </tr>
           </tbody>
         </table>
