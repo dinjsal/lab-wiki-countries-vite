@@ -64,11 +64,11 @@ function CountryDetailsPage({countryList}) {
             <tr>
               <th scope="row">Borders</th>
               <td>
-                <Link>
+                <Link to={`/countries/${countryList}`}>
                 {foundCountry.borders.map((border) => {
                   return (
                     <div key={border._id}> 
-                      {border.borders != [] ? 'with border/s' : 'without'}
+                      {border.borders != [] ? 'with borders' : 'without'}
                     </div>
                   )
                 })}
