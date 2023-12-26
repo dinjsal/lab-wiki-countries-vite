@@ -64,28 +64,22 @@ function CountryDetailsPage({countryList}) {
             <tr>
               <th scope="row">Borders</th>
               <td>
-                <Link to={`/countries/${countryList}`}>
-                {foundCountry.borders.map((border) => {
-                  return (
-                    <div key={border._id}> 
-                      {border.borders != [] ? 'with borders' : 'without'}
-                    </div>
-                  )
-                })}
-                {/* {foundCountry.borders != [] ? {} : foundCountry.borders} */}
-                  {/* {foundCountry.borders.map((border) => {
-                    console.log(border)
-                    return (
-                      <div key={border._id}> 
-                        <ul>
-                          <li>
-                            {border.borders == [] ? "none" : border.alpha3Code }
-                          </li>
-                        </ul>
-                      </div>
-                    )
-                  })} */}
-              </Link>
+                <ul>
+                {foundCountry.borders.length === 0 ? (
+                  <li>no borders</li>
+                  ) : (
+                    foundCountry.borders.map((border) => {
+                      // console.log(border)
+                      return (
+                        <div key={border._id}> 
+                            <li>
+                              <Link to={`/countries/${border}`}> {border} </Link>
+                            </li>
+                        </div>
+                      )
+                    })
+                  )}
+                </ul>
               </td>
             </tr>
           </tbody>
